@@ -11837,15 +11837,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby-remark-custom-blocks@npm:^3.15.0":
-  version: 3.15.0
-  resolution: "gatsby-remark-custom-blocks@npm:3.15.0"
+"gatsby-remark-custom-blocks@npm:^5.13.1":
+  version: 5.13.1
+  resolution: "gatsby-remark-custom-blocks@npm:5.13.1"
   dependencies:
-    "@babel/runtime": ^7.15.4
-    remark-custom-blocks: ^2.5.0
+    "@babel/runtime": ^7.20.13
+    remark-custom-blocks: ^2.6.0
   peerDependencies:
-    gatsby: ^3.0.0-next.0
-  checksum: eacab4397c7569677cd2f91fabe3a84b8a98777e7bffad27220dfbb120c3e08d24d3b31db351ef785e4aab3668a4d1859666cb138c1f1a8815dd20b9dd1e2c81
+    gatsby: ^5.0.0-next
+  checksum: 04e45cd05c6170703aa16bbb2fda8cb4e9e05a2d0ca895cf94b7d91a9532662209c49aad7ddadc5b6ca0d446f20d85934ee7217fea920d77dc0e72d9eea735fd
   languageName: node
   linkType: hard
 
@@ -20694,7 +20694,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"remark-custom-blocks@npm:^2.5.0":
+"remark-custom-blocks@npm:^2.6.0":
   version: 2.6.0
   resolution: "remark-custom-blocks@npm:2.6.0"
   dependencies:
@@ -24696,7 +24696,7 @@ __metadata:
     gatsby-plugin-typography: ^3.15.0
     gatsby-remark-autolink-headers: ^4.12.0
     gatsby-remark-copy-linked-files: ^4.12.0
-    gatsby-remark-custom-blocks: ^3.15.0
+    gatsby-remark-custom-blocks: ^5.13.1
     gatsby-remark-emojis: ^0.4.3
     gatsby-remark-images: ^5.12.0
     gatsby-remark-responsive-iframe: ^4.12.0
