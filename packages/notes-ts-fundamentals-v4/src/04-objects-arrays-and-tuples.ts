@@ -7,7 +7,7 @@ let car: {
 }
 
 /*
-//? A function that prints info about a car to stdout
+// ? A function that prints info about a car to stdout
 // function printCar(car: {
 //     make: string
 //     model: string
