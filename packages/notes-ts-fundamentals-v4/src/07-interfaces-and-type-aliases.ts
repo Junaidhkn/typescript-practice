@@ -3,7 +3,7 @@ type Amount = {
   currency: string
   value: number
 }
-/*
+
 // function printAmount(amt: Amount) {
 //     console.log(amt)
 
@@ -19,9 +19,8 @@ type Amount = {
 
 // printAmount(donation) //✔️ Valid
 
-
 //? Let's look at a familiar example from the last chapter
-/*
+
 // function flipCoin() {
 //     if (Math.random() > 0.5) return "heads"
 //     return "tails"
@@ -41,7 +40,7 @@ type Amount = {
 // }
 
 //? Let's model the return type as an interface
-/*
+
 // type UserInfoOutcomeError = readonly ["error", Error]
 // type UserInfoOutcomeSuccess = readonly [
 //     "success",
@@ -51,9 +50,8 @@ type Amount = {
 //     | UserInfoOutcomeError
 //     | UserInfoOutcomeSuccess
 
-
 //* Inheritance in type aliases
-/*
+
 // type SpecialDate = Date & { getDescription(): string }
 
 // const newYearsEve: SpecialDate
@@ -67,7 +65,7 @@ type Amount = {
 // //             ^?
 
 //* Interfaces
-/*
+
 // interface Amount2 {
 //     currency: string
 //     value: number
@@ -78,7 +76,7 @@ type Amount = {
 // }
 
 //* Inheritance in interfaces
-/*
+
 // //? `extends` keyword
 // function consumeFood(arg) { }
 
@@ -97,7 +95,6 @@ type Amount = {
 // c.eat
 // c.meow()
 
-/*
 // interface Animal {
 //     isAlive(): boolean
 // }
@@ -113,9 +110,8 @@ type Amount = {
 //     //   ^|
 // }
 
-
 //? `implements` keyword
-/*
+
 // interface AnimalLike {
 //     eat(food): void
 // }
@@ -125,7 +121,7 @@ type Amount = {
 //         return "woof"
 //     }
 // }
-/*
+
 // class LivingOrganism { //? A base class
 //     isAlive() {
 //         return true
@@ -146,7 +142,7 @@ type Amount = {
 // }
 
 //? Implements sometimes works with type aliases
-/*
+
 // type CanJump = {
 //     jumpToHeight(): number
 //         // | [number, number]
@@ -168,25 +164,22 @@ type Amount = {
 
 //* Open interfaces
 
-/*
 // function feed(animal: AnimalLike) {
 //     animal.eat
 //     animal.isAlive
 // }
-/*
+
 // interface AnimalLike { //✔️ Additional declaration is OK
 //     isAlive(): boolean
 // }
 
 //* Use case: augmenting existing types
 
-/*
 // window.document // an existing property
 // //      ^? (property) document: Document
 // window.exampleProperty = 42
 // //      ^? (property) exampleProperty: number
 
-/*
 //// tells TS that `exampleProperty` exists
 // declare global {
 //     interface Window {
@@ -195,15 +188,14 @@ type Amount = {
 // }
 
 //* Recursive types
-/*
+
 // type NestedNumbers = number | NestedNumbers[]
- 
+
 // const val: NestedNumbers = [3, 4, [5, 6, [7], 59], 221]
-/*
+
 // if (typeof val !== "number") {
 //   val.push(41)
 //   val.push("this will not work") //! No strings allowed
 // }
 
-/**/
 export default {}

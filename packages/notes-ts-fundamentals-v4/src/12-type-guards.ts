@@ -41,7 +41,7 @@ else if ('dateRange' in value) {
   // ^?
 }
 //* User-defined type guards
-/*
+
 // interface CarLike {
 //     make: string
 //     model: string
@@ -64,7 +64,7 @@ else if ('dateRange' in value) {
 //     maybeCar
 //     // ^?
 // }
-/*
+
 // // the guard
 // function isCarLike(valueToTest: any) {
 //     return (
@@ -86,11 +86,11 @@ else if ('dateRange' in value) {
 // }
 
 //* value is foo
-/*
+
 // function isCarLike(valueToTest: any): valueToTest is CarLike {
 
 //* asserts value is foo
-/*
+
 // function assertsIsCarLike(
 //     valueToTest: any
 // ): asserts valueToTest is CarLike {
@@ -115,7 +115,6 @@ else if ('dateRange' in value) {
 
 //* Use with private #field presence checks
 
-/*
 // class Car {
 //     static #nextSerialNumber: number = 100
 //     static #generateSerialNumber() { return this.#nextSerialNumber++ }
@@ -143,14 +142,13 @@ else if ('dateRange' in value) {
 // }
 
 //* Narrowing with switch(true)
-/*
+
 // class Fish {
 //     swim(): void { }
 // }
 // class Bird {
 //     fly(): void { }
 // }
-
 
 // switch (true) {
 //     case val instanceof Bird:
@@ -162,7 +160,7 @@ else if ('dateRange' in value) {
 // }
 
 //* Writing high-quality type guards
-/*
+
 // //! EXAMPLE OF A BAD TYPE GUARD
 // function isNull(val: any): val is null {
 //     return !val //! Lies!
@@ -176,5 +174,4 @@ else if ('dateRange' in value) {
 //     console.log(empty) //? is it really impossible to get here?
 // }
 
-/**/
 export default {}

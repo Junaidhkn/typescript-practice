@@ -1,12 +1,11 @@
 //* keyof
 
 type DatePropertyNames = keyof Date
-/*
+
 // type DateStringPropertyNames = DatePropertyNames & string
 // type DateSymbolPropertyNames = DatePropertyNames & symbol
 
 //* typeof
-/*
 // async function main() {
 //     const apiResponse = await Promise.all([
 //         fetch("https://example.com"),
@@ -14,16 +13,14 @@ type DatePropertyNames = keyof Date
 //     ])
 //     type ApiResponseType = typeof apiResponse
 // }
-/*
+
 //?^ note: type alias within a function scope!
 // const MyAjaxConstructor = CSSRule
 // CSSRule.STYLE_RULE
 // const myAjax = new CSSRule()
 
-
 //* Indexed Access Types
 
-/*
 // interface Car {
 //     make: string
 //     model: string
@@ -41,9 +38,8 @@ type DatePropertyNames = keyof Date
 // let carProperty: Car["color" | "year"] // ✔️ Passing a union type through the index
 
 //* Use case: the type registry pattern
-/*
-// See: 
-import("./09-type-registry/")
 
-/**/
+// See:
+import('./09-type-registry/')
+
 export default {}

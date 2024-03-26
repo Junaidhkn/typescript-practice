@@ -6,19 +6,23 @@ let car: {
   year: number
 }
 
-/*
-// ? A function that prints info about a car to stdout
-// function printCar(car: {
-//     make: string
-//     model: string
-//     year: number
-// }) {
-//     console.log(`${car.make} ${car.model} (${car.year})`)
-// }
+const Mycar = {
+  make: 'Mercedez',
+  model: 'C-180',
+  year: 2001,
+}
 
-// printCar(car)
+// A function that prints info about a car to stdout
+function printCar(car: {
+  make: string
+  model: string
+  year: number
+}) {
+  console.log(`${car.make} ${car.model} (${car.year})`)
+}
 
-/*
+printCar(Mycar)
+
 //* Optional properties
 //? Insert into function printCar
 // let str = `${car.make} ${car.model} (${car.year})`
@@ -26,7 +30,6 @@ let car: {
 // if (typeof car.chargeVoltage !== "undefined")
 //   str += `// ${car.chargeVoltage}v`
 
-/*
 // printCar({ //? original fn works
 //     make: "Honda",
 //     model: "Accord",
@@ -40,7 +43,6 @@ let car: {
 //     chargeVoltage: 220,
 // })
 
-/*
 //* Excess property checking
 
 // printCar({
@@ -50,7 +52,6 @@ let car: {
 //     color: "RED", //? EXTRA PROPERTY
 // })
 
-/*
 //* Index signatures
 
 //? Dictionary of phone #s
@@ -59,7 +60,7 @@ let car: {
 //     work: { country: "+1", area: "670", number: "752-5856" },
 //     fax: { country: "+1", area: "322", number: "525-4357" },
 // }
-/*
+
 //? Model as an index signature
 // const phones: {
 //     [k: string]: {
@@ -71,7 +72,6 @@ let car: {
 
 //*  Array Types
 
-/*
 // const fileExtensions = ["js", "ts"]
 //        ^? string[]
 
@@ -83,9 +83,8 @@ let car: {
 //     },
 // ]
 
-
 //* Tuples
-/*
+
 // let myCar = [
 //     2002,     // Year
 //     "Toyota", // Make
@@ -94,9 +93,9 @@ let car: {
 // const [year, make, model] = myCar //✔️ Destructuring
 
 //? Inference doesn't work very well for tuples
-/*
+
 // myCar = ["Honda", 2017, "Accord", "Sedan"] //! Wrong convention
-/*
+
 // let myCar: [number, string, string] = [
 //     2002,
 //     "Toyota",
@@ -105,9 +104,8 @@ let car: {
 // myCar = ["Honda", 2017, "Accord"] //! Wrong convention
 // myCar = [2017, "Honda", "Accord", "Sedan"] //! Too many elements
 
-
 //*  `readonly` tuples
-/*
+
 // const numPair: [number, number] = [4, 5]; //✔️ Valid
 // const numTriplet: [number, number, number] = [7]; //! Invalid
 
@@ -125,7 +123,5 @@ let car: {
 // roNumPair.length
 // roNumPair.push(6) // [4, 5, 6] //! Not allowed
 // roNumPair.pop() // [4, 5] //! Not allowed
-
-/**/
 
 export default {}

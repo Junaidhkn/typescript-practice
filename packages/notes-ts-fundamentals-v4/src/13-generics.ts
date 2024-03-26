@@ -20,7 +20,7 @@ const phoneDict = {
   },
   /*... and so on */
 }
-/*
+
 // interface PhoneInfo {
 //   customerId: string
 //   areaCode: string
@@ -32,7 +32,6 @@ const phoneDict = {
 //   idGen: (arg: PhoneInfo) => string, // a callback to get Ids
 // ): { [k: string]: PhoneInfo } {}
 
-/*
 //? function body
 // // create an empty dictionary
 // const dict: { [k: string]: PhoneInfo } = {}
@@ -46,7 +45,7 @@ const phoneDict = {
 // // return the dictionary
 // const result = listToDict(phoneList, (item) => item.customerId)
 // console.log(result)
-/*
+
 //? An attempt to generalize the above function to work with any type of list
 
 // function listToDict(
@@ -56,7 +55,6 @@ const phoneDict = {
 
 //* Defining a type parameter
 
-/*
 // function listToDict<T>(
 //   list: T[],
 //   idGen: (arg: T) => string,
@@ -74,7 +72,6 @@ const phoneDict = {
 // //   ^?
 // wrapInArray(new RegExp("/s/"))
 
-/*
 //? Let's try it!
 // listToDict(
 //   [
@@ -89,10 +86,9 @@ const phoneDict = {
 // )
 
 //* Best practices
-/*
+
 // function returnAs<T>(arg: any): T {
 //     return arg //! an `any` that will _seem_ like a `T`
 // } // may as well just cast
 
-/**/
 export default {}

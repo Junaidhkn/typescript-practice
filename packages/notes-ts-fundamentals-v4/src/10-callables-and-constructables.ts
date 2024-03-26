@@ -10,14 +10,13 @@ const add: TwoNumberCalculation = (a, b) => a + b
 const subtract: TwoNumberCalc = (x, y) => x - y
 
 //* `void`
-/*
+
 // function printFormattedJSON(obj: string[]) {
 //     console.log(JSON.stringify(obj, null, "  "))
 // }
 
 // const x = printFormattedJSON(["hello", "world"])
 
-/*
 // function invokeInFourSeconds(callback: () => undefined) {
 //     setTimeout(callback, 4000)
 // }
@@ -30,7 +29,7 @@ const subtract: TwoNumberCalc = (x, y) => x - y
 // invokeInFiveSeconds(() => values.push(4))
 
 //* Constructables
-/*
+
 // interface DateConstructor {
 //     new(value: number): Date
 // }
@@ -39,7 +38,7 @@ const subtract: TwoNumberCalc = (x, y) => x - y
 // const d = new MyDateConstructor(1697923072611)
 
 //* Function overloads
-/*
+
 // type FormSubmitHandler = (data: FormData) => void
 // type MessageHandler = (evt: MessageEvent) => void
 
@@ -52,7 +51,6 @@ const subtract: TwoNumberCalc = (x, y) => x - y
 // handleMainEvent(myFrame, (val) => {
 // })
 
-/*
 // //? Add above handleMainEvent function declaration
 // function handleMainEvent(
 //     elem: HTMLFormElement,
@@ -68,20 +66,19 @@ const subtract: TwoNumberCalc = (x, y) => x - y
 // })
 
 //* `this` types
-/*
+
 // function myClickHandler(event: Event) {
 //     // this.disabled = true
 // }
 // myClickHandler(new Event("click")) // maybe ok?
 
-/*
 // const myButton = document.getElementsByTagName("button")[0]
 // const boundHandler = myClickHandler.bind(myButton)
 // boundHandler(new Event("click")) // bound version: ok
 // myClickHandler.call(myButton, new Event("click")) // also ok
 
 //* Function best practices
-/*
+
 //? Explicit function return types
 // type JSONPrimitive = string | number | boolean | null
 // type JSONObject = { [k: string]: JSONValue }
@@ -104,5 +101,5 @@ const subtract: TwoNumberCalc = (x, y) => x - y
 //         //           ^?
 //     })
 // }
-/**/
+
 export default {}
