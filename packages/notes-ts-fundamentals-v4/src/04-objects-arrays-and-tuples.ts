@@ -18,7 +18,6 @@ function printCar(car: {
   model: string
   year: number
   chargeVoltage?: number
-  color?: string
 }) {
   let str = `${car.make} ${car.model} (${car.year})`
 
@@ -50,21 +49,41 @@ printCar({
 
 //* Excess property checking
 
-printCar({
+const myArg = {
   make: 'Tesla',
   model: 'Model 3',
   year: 2020,
   color: 'RED', //? EXTRA PROPERTY
+}
+
+printCar(myArg)
+
+const PrintObj = (args: {
+  make: string
+  model: string
+  year: number
+  chargeVoltage?: number
+}): void => {
+  console.log(args)
+}
+
+PrintObj({
+  ...{
+    make: 'Tesla',
+    model: 'Model 3',
+    year: 2020,
+    color: 'RED',
+  },
 })
 
 //* Index signatures
 
 //? Dictionary of phone #s
-// const phones = {
-//     home: { country: "+1", area: "211", number: "652-4515" },
-//     work: { country: "+1", area: "670", number: "752-5856" },
-//     fax: { country: "+1", area: "322", number: "525-4357" },
-// }
+const phones = {
+  home: { country: '+1', area: '211', number: '652-4515' },
+  work: { country: '+1', area: '670', number: '752-5856' },
+  fax: { country: '+1', area: '322', number: '525-4357' },
+}
 
 //? Model as an index signature
 // const phones: {
