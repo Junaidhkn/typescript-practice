@@ -17,40 +17,45 @@ function printCar(car: {
   make: string
   model: string
   year: number
+  chargeVoltage?: number
+  color?: string
 }) {
-  console.log(`${car.make} ${car.model} (${car.year})`)
+  let str = `${car.make} ${car.model} (${car.year})`
+
+  if (typeof car.chargeVoltage !== 'undefined') {
+    str += `// ${car.chargeVoltage}v`
+  }
+  console.log(str)
 }
 
 printCar(Mycar)
 
 //* Optional properties
 //? Insert into function printCar
-// let str = `${car.make} ${car.model} (${car.year})`
-// car.chargeVoltage
-// if (typeof car.chargeVoltage !== "undefined")
-//   str += `// ${car.chargeVoltage}v`
 
-// printCar({ //? original fn works
-//     make: "Honda",
-//     model: "Accord",
-//     year: 2017,
-// })
+printCar({
+  //? original fn works
+  make: 'Honda',
+  model: 'Accord',
+  year: 2017,
+})
 
-// printCar({ //? optional property works too!
-//     make: "Tesla",
-//     model: "Model 3",
-//     year: 2020,
-//     chargeVoltage: 220,
-// })
+printCar({
+  //? optional property works too!
+  make: 'Tesla',
+  model: 'Model 3',
+  year: 2020,
+  chargeVoltage: 220,
+})
 
 //* Excess property checking
 
-// printCar({
-//     make: "Tesla",
-//     model: "Model 3",
-//     year: 2020,
-//     color: "RED", //? EXTRA PROPERTY
-// })
+printCar({
+  make: 'Tesla',
+  model: 'Model 3',
+  year: 2020,
+  color: 'RED', //? EXTRA PROPERTY
+})
 
 //* Index signatures
 
