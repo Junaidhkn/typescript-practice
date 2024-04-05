@@ -5100,12 +5100,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:18.2.14":
-  version: 18.2.14
-  resolution: "@types/react-dom@npm:18.2.14"
+"@types/react-dom@npm:18.2.24":
+  version: 18.2.24
+  resolution: "@types/react-dom@npm:18.2.24"
   dependencies:
     "@types/react": "*"
-  checksum: 890289c70d1966c168037637c09cacefe6205bdd27a33252144a6b432595a2943775ac1a1accac0beddaeb67f8fdf721e076acb1adc990b08e51c3d9fd4e780c
+  checksum: 7fb0dd0c88c5219bcc27f1f9bf14d9e1b1593014ee7938dd46ee9782c77c39d1ccc79d2b8364a6113019d7f65c94e4dc3c37425c3972910bb2674cce98d3f3ca
   languageName: node
   linkType: hard
 
@@ -24669,7 +24669,7 @@ __metadata:
     "@types/node": ^20.8.7
     "@types/pkg-up": ^3.1.0
     "@types/react": 18.2.28
-    "@types/react-dom": 18.2.14
+    "@types/react-dom": 18.2.24
     "@types/react-helmet": ^6.1.7
     "@types/react-test-renderer": ^18.0.3
     "@types/sharp": ^0.30.5
