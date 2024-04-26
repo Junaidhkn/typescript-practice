@@ -80,15 +80,27 @@ PrintObj({
 
 //? Dictionary of phone #s
 const phones: {
+  mobile: {
+    country: string
+    area: string
+    number: string
+  }
   [k: string]: {
     country: string
     area: string
     number: string
   }
+  //* In this example, phones is a Dictionary, while Mobile is explicitly defind field
+
+  //  typescript Compiler Settings : uncheckedIndexAccess
+  // when you are reaching for a known property ie: phones.mobile
+  // when reaching into a dictionary phones["work"]
+
+  //*
 } = {
   home: { country: '+1', area: '211', number: '652-4515' },
   work: { country: '+1', area: '670', number: '752-5856' },
-  fax: { country: '+1', area: '322', number: '525-4357' },
+  mobile: { country: '+1', area: '322', number: '525-4357' },
 }
 
 //? Model as an index signature
