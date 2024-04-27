@@ -16,7 +16,7 @@ let evenNumber: Evens = 2 //✔️ Valid
 
 // //? A set of numbers from 1 to 5 OR a set of even numbers from 1 to 9
 // Casting
-let evenOrLowNumber = 5 as Evens | OneThroughFive
+// let evenOrLowNumber = 5 as Evens | OneThroughFive
 
 // //? Control flow sometimes results in union types
 function flipCoin(): 'heads' | 'tails' {
@@ -56,10 +56,10 @@ function printNumber(num: number): void {}
 let x = 5 as Evens | OneThroughFive
 
 //? What does Evens | OneThroughFive accept as values?
-// let evenOrLowNumber: Evens | OneThroughFive;
-// evenOrLowNumber = 6 //✔️ An even
-// evenOrLowNumber = 3 //✔️ A low number
-// evenOrLowNumber = 4 //✔️ A even low number
+let evenOrLowNumber: Evens | OneThroughFive
+evenOrLowNumber = 6 //✔️ An even
+evenOrLowNumber = 3 //✔️ A low number
+evenOrLowNumber = 4 //✔️ A even low number
 
 //? What requirements can `Evens | OneThroughFive` meet?
 // printEven(x) //! Not guaranteed to be even
@@ -69,24 +69,24 @@ let x = 5 as Evens | OneThroughFive
 
 //* Narrowing with type guards
 
-// const [first, second] = outcome2
-// if (second instanceof Error) {
-//     // In this branch of your code, second is an Error
-//     second
-// } else {
-//     // In this branch of your code, second is the user info
-//     second
-// }
+const [first, second] = outcome2
+if (second instanceof Error) {
+  // In this branch of your code, second is an Error
+  second
+} else {
+  // In this branch of your code, second is the user info
+  second
+}
 
 //* Discriminated unions
 
-// if (first === "error") {
-//     // In this branch of your code, second is an Error
-//     second
-// } else {
-//     // In this branch of your code, second is the user info
-//     second
-// }
+if (first === 'error') {
+  // In this branch of your code, second is an Error
+  second
+} else {
+  // In this branch of your code, second is the user info
+  second
+}
 
 //* Intersection Types
 
@@ -97,11 +97,11 @@ let x = 5 as Evens | OneThroughFive
 // evenAndLowNumber = 4 //✔️ In both sets
 
 //? What requirements can `Evens & OneThroughFive` meet?
-// let y = 4 as Evens & OneThroughFive;
+let y = 4 as Evens & OneThroughFive
 
-// printEven(y) //✔️ Guaranteed to be even
-// printLowNumber(y) //✔️ Guaranteed to be in {1, 2, 3, 4, 5}
-// printEvenNumberUnder5(y) //✔️ Guaranteed to be in {2, 4}
-// printNumber(y) //✔️ Guaranteed to be a number
+printEven(y) //✔️ Guaranteed to be even
+printLowNumber(y) //✔️ Guaranteed to be in {1, 2, 3, 4, 5}
+printEvenNumberUnder5(y) //✔️ Guaranteed to be in {2, 4}
+printNumber(y) //✔️ Guaranteed to be a number
 
 export default {}
