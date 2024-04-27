@@ -92,7 +92,7 @@ const phones: {
   }
   //* In this example, phones is a Dictionary, while Mobile is explicitly defind field
 
-  //  typescript Compiler Settings : uncheckedIndexAccess
+  // typescript Compiler Settings : uncheckedIndexAccess
   // when you are reaching for a known property ie: phones.mobile
   // when reaching into a dictionary phones["work"]
 
