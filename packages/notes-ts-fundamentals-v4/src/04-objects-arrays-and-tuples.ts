@@ -90,7 +90,7 @@ const phones: {
     area: string
     number: string
   }
-  //* In this example, phones is a Dictionary, while Mobile is explicitly defind field
+  //* In this example, phones is a Dictionary, while Mobile is explicitly defined field
 
   // typescript Compiler Settings : uncheckedIndexAccess
   // when you are reaching for a known property ie: phones.mobile

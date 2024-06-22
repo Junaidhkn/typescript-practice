@@ -118,34 +118,35 @@ function careForHamster(h: Hamster) {
 
 //? `implements` keyword
 
-// interface AnimalLike {
-//     eat(food): void
-// }
+interface AnimalLike {
+  eat(food: string): void
+}
 
-// class Dog implements AnimalLike {
-//     bark() {
-//         return "woof"
-//     }
-// }
+class Dog implements AnimalLike {
+  bark() {
+    return 'woof'
+  }
+  eat() {}
+}
 
-// class LivingOrganism { //? A base class
-//     isAlive() {
-//         return true
-//     }
-// }
-// interface CanBark { //? Another interface
-//     bark(): string
-// }
-// class Dog2
-//     extends LivingOrganism
-//     implements AnimalLike, CanBark {
-//     bark() {
-//         return "woof"
-//     }
-//     eat(food) {
-//         consumeFood(food)
-//     }
-// }
+class LivingOrganism {
+  //? A base class
+  isAlive() {
+    return true
+  }
+}
+interface CanBark {
+  //? Another interface
+  bark(): string
+}
+class Dog2 extends LivingOrganism implements AnimalLike, CanBark {
+  bark() {
+    return 'woof'
+  }
+  eat(food: string) {
+    consumeFood(food)
+  }
+}
 
 //? Implements sometimes works with type aliases
 
