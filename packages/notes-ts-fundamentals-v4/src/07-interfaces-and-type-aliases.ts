@@ -55,14 +55,11 @@ type UserInfoOutcome = UserInfoOutcomeError | UserInfoOutcomeSuccess
 
 type SpecialDate = Date & { getDescription(): string }
 
-const newYearsEve: SpecialDate =
-  //                    ^?
-  Object.assign(new Date(), {
-    getDescription: () => 'Last day of the year',
-  })
+const newYearsEve: SpecialDate = Object.assign(new Date(), {
+  getDescription: () => 'Last day of the year',
+})
 
 newYearsEve.getDescription
-//             ^?
 
 //* Interfaces
 // Interfaces cannot model every possible type that typescript has, ie; it cannot create union Type
@@ -84,7 +81,7 @@ function printAmount2(amt: Amount2) {
 //* Inheritance in interfaces
 
 // //? `extends` keyword
-function consumeFood(arg: string) {}
+function consumeFood(arg: string): void {}
 
 class AnimalThatEats {
   eat(food: string) {
@@ -126,7 +123,12 @@ class Dog implements AnimalLike {
   bark() {
     return 'woof'
   }
-  eat() {}
+  eat(food: string) {
+    consumeFood(food)
+  }
+  isAlive(): boolean {
+    return true
+  }
 }
 
 class LivingOrganism {
@@ -150,18 +152,18 @@ class Dog2 extends LivingOrganism implements AnimalLike, CanBark {
 
 //? Implements sometimes works with type aliases
 
-// type CanJump = {
-//     jumpToHeight(): number
-//         // | [number, number]
-// }
-// class Dog3 implements CanJump {
-//     jumpToHeight() {
-//         return 1.7
-//     }
-//     eat(food) {
-//         consumeFood(food)
-//     }
-// }
+type CanJump = {
+  jumpToHeight(): number
+  // | [number, number]
+}
+class Dog3 implements CanJump {
+  jumpToHeight() {
+    return 1.7
+  }
+  eat(food: string) {
+    consumeFood(food)
+  }
+}
 
 // type CanBark =
 //   | number
@@ -171,38 +173,39 @@ class Dog2 extends LivingOrganism implements AnimalLike, CanBark {
 
 //* Open interfaces
 
-// function feed(animal: AnimalLike) {
-//     animal.eat
-//     animal.isAlive
-// }
+function feed(animal: AnimalLike) {
+  animal.eat
+  animal.isAlive
+}
 
-// interface AnimalLike { //✔️ Additional declaration is OK
-//     isAlive(): boolean
-// }
+interface AnimalLike {
+  //✔️ Additional declaration is OK
+  isAlive(): boolean
+}
 
 //* Use case: augmenting existing types
 
-// window.document // an existing property
-// //      ^? (property) document: Document
-// window.exampleProperty = 42
-// //      ^? (property) exampleProperty: number
+window.document // an existing property
+//      ^? (property) document: Document
+window.exampleProperty = 42
+//      ^? (property) exampleProperty: number
 
-//// tells TS that `exampleProperty` exists
-// declare global {
-//     interface Window {
-//     exampleProperty: number
-//     }
-// }
+// tells TS that `exampleProperty` exists
+declare global {
+  interface Window {
+    exampleProperty: number
+  }
+}
 
 //* Recursive types
 
-// type NestedNumbers = number | NestedNumbers[]
+type NestedNumbers = number | NestedNumbers[]
 
-// const val: NestedNumbers = [3, 4, [5, 6, [7], 59], 221]
+const val: NestedNumbers = [3, 4, [5, 6, [7], 59], 221]
 
-// if (typeof val !== "number") {
-//   val.push(41)
-//   val.push("this will not work") //! No strings allowed
-// }
+if (typeof val !== 'number') {
+  val.push(41)
+  // val.push('this will not work') //! No strings allowed
+}
 
 export default {}
