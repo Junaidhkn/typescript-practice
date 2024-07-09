@@ -5,6 +5,13 @@ type DatePropertyNames = keyof Date
 type DateStringPropertyNames = DatePropertyNames & string
 type DateSymbolPropertyNames = DatePropertyNames & symbol
 
+//* Keyof VS TypeOf
+
+/*
+keyof = Object.keys( for types)
+Typeof = Get me the type of this value 
+*/
+
 //* typeof
 async function main() {
   const apiResponse = await Promise.all([
