@@ -30,12 +30,12 @@ invokeInFiveSeconds(() => values.push(4))
 
 //* Constructables
 
-// interface DateConstructor {
-//     new(value: number): Date
-// }
+interface DateConstructor {
+  new (value: number): Date
+}
 
-// let MyDateConstructor: DateConstructor = Date
-// const d = new MyDateConstructor(1697923072611)
+let MyDateConstructor: DateConstructor = Date
+const d = new MyDateConstructor(1697923072611)
 
 //* Function overloads
 
