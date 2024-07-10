@@ -43,23 +43,22 @@ type FormSubmitHandler = (data: FormData) => void
 type MessageHandler = (evt: MessageEvent) => void
 
 function handleMainEvent(
+  elem: HTMLFormElement,
+  handler: FormSubmitHandler,
+): void
+function handleMainEvent(
+  elem: HTMLIFrameElement,
+  handler: MessageHandler,
+): void
+
+function handleMainEvent(
   elem: HTMLFormElement | HTMLIFrameElement,
   handler: FormSubmitHandler | MessageHandler,
 ) {}
 
-// const myFrame = document.getElementsByTagName("iframe")[0]
-// handleMainEvent(myFrame, (val) => {
-// })
+const myFrame = document.getElementsByTagName('iframe')[0]
+handleMainEvent(myFrame, (val) => {})
 
-// //? Add above handleMainEvent function declaration
-// function handleMainEvent(
-//     elem: HTMLFormElement,
-//     handler: FormSubmitHandler
-// )
-// function handleMainEvent(
-//     elem: HTMLIFrameElement,
-//     handler: MessageHandler
-// )
 // //? Form handler has a specific type now!
 // const myForm = document.getElementsByTagName("form")[0]
 // handleMainEvent(myForm, (val) => {
