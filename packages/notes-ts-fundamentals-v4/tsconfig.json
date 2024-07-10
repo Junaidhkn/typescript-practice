@@ -6,6 +6,7 @@
     "target": "ES2018",
     "moduleResolution": "Node",
     "noUnusedParameters": false,
+    "strictBindCallApply": true,
     "noUnusedLocals": false,
     "noImplicitAny": true,
     "noImplicitThis": true,

@@ -60,21 +60,20 @@ const myFrame = document.getElementsByTagName('iframe')[0]
 handleMainEvent(myFrame, (val) => {})
 
 // //? Form handler has a specific type now!
-// const myForm = document.getElementsByTagName("form")[0]
-// handleMainEvent(myForm, (val) => {
-// })
+const myForm = document.getElementsByTagName('form')[0]
+handleMainEvent(myForm, (val) => {})
 
 //* `this` types
 
-// function myClickHandler(event: Event) {
-//     // this.disabled = true
-// }
-// myClickHandler(new Event("click")) // maybe ok?
+function myClickHandler(this: HTMLButtonElement, event: Event) {
+  this.disabled = true
+}
+// myClickHandler(new Event('click')) // maybe ok?
 
-// const myButton = document.getElementsByTagName("button")[0]
-// const boundHandler = myClickHandler.bind(myButton)
-// boundHandler(new Event("click")) // bound version: ok
-// myClickHandler.call(myButton, new Event("click")) // also ok
+const myButton = document.getElementsByTagName('button')[0]
+const boundHandler = myClickHandler.bind(myButton)
+boundHandler(new Event('click')) // bound version: ok
+myClickHandler.call(myButton, new Event('click')) // also ok
 
 //* Function best practices
 
