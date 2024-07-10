@@ -2,14 +2,34 @@
 
 //? Field types
 class Car {
+  static nextSerialNumber: number
+  static generateSerialNumber() {
+    return this.nextSerialNumber++
+  }
+  static {
+    // Static Block
+    // `this` is the static scope
+    fetch('https://api.example.com/vin_number_data')
+      .then((response) => response.json())
+      .then((data) => {
+        this.nextSerialNumber = data.mostRecentInvoiceId + 1
+      })
+  }
+
   make: string
   model: string
   year: number
+  serialNumber = Car.generateSerialNumber() //Class field Initializer
   constructor(make: string, model: string, year: number) {
     this.make = make
     this.model = model
-    //     ^?
     this.year = year
+  }
+  honk(duration: number): string {
+    return `h${'o'.repeat(duration)}nk`
+  }
+  getLabel() {
+    return `${this.make} ${this.model} ${this.year} - #${this.serialNumber}`
   }
 }
 
@@ -18,18 +38,9 @@ let sedan = new Car('Honda', 'Accord', 2017)
 // new Car(2017, "Honda", "Accord") //! not safe!
 
 //? method types
-// honk(duration: number): string {
-//     return `h${'o'.repeat(duration)}nk`;
-//  }
-// const c = new Car("Honda", "Accord", 2017);
-// c.honk(5); // "hooooonk"
 
-//? static member fields
-// static nextSerialNumber = 100
-// static generateSerialNumber() { return this.nextSerialNumber++ }
-// getLabel() {
-// return `${this.make} ${this.model} ${this.year} - #${this.serialNumber}`
-// }
+const c = new Car('Honda', 'Accord', 2017)
+// c.honk(5); // "hooooonk"
 
 // console.log( new Car("Honda", "Accord", 2017))
 // // > "Honda Accord 2017 - #100
