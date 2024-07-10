@@ -39,13 +39,13 @@ const d = new MyDateConstructor(1697923072611)
 
 //* Function overloads
 
-// type FormSubmitHandler = (data: FormData) => void
-// type MessageHandler = (evt: MessageEvent) => void
+type FormSubmitHandler = (data: FormData) => void
+type MessageHandler = (evt: MessageEvent) => void
 
-// function handleMainEvent(
-//     elem: HTMLFormElement | HTMLIFrameElement,
-//     handler: FormSubmitHandler | MessageHandler
-// ) { }
+function handleMainEvent(
+  elem: HTMLFormElement | HTMLIFrameElement,
+  handler: FormSubmitHandler | MessageHandler,
+) {}
 
 // const myFrame = document.getElementsByTagName("iframe")[0]
 // handleMainEvent(myFrame, (val) => {
