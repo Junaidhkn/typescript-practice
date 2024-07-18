@@ -44,7 +44,7 @@ class Car {
     ) {
       other
 
-      return (other.#serialNumber = this.#serialNumber)
+      return other.#serialNumber === this.#serialNumber
     }
     return false
   }
