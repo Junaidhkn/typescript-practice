@@ -42,48 +42,49 @@ else if ('dateRange' in value) {
 }
 //* User-defined type guards
 
-// interface CarLike {
-//     make: string
-//     model: string
-//     year: number
-// }
+interface CarLike {
+  make: string
+  model: string
+  year: number
+}
 
-// let maybeCar: any
+let maybeCar: any
+
+// the guard
+if (
+  maybeCar &&
+  typeof maybeCar === 'object' &&
+  'make' in maybeCar &&
+  typeof maybeCar['make'] === 'string' &&
+  'model' in maybeCar &&
+  typeof maybeCar['model'] === 'string' &&
+  'year' in maybeCar &&
+  typeof maybeCar['year'] === 'number'
+) {
+  maybeCar
+  // ^?
+}
 
 // // the guard
-// if (
-//     maybeCar &&
-//     typeof maybeCar === "object" &&
-//     "make" in maybeCar &&
-//     typeof maybeCar["make"] === "string" &&
-//     "model" in maybeCar &&
-//     typeof maybeCar["model"] === "string" &&
-//     "year" in maybeCar &&
-//     typeof maybeCar["year"] === "number"
-// ) {
-//     maybeCar
-//     // ^?
-// }
-
-// // the guard
-// function isCarLike(valueToTest: any) {
-//     return (
-//         valueToTest &&
-//         typeof valueToTest === "object" &&
-//         "make" in valueToTest &&
-//         typeof valueToTest["make"] === "string" &&
-//         "model" in valueToTest &&
-//         typeof valueToTest["model"] === "string" &&
-//         "year" in valueToTest &&
-//         typeof valueToTest["year"] === "number"
-//     )
-// }
+function isCarLike(valueToTest: any): valueToTest is CarLike {
+  // The function returns a boolean, therefore if the valuetoTest is true, then it's CarLike otherwise it's any
+  return (
+    valueToTest &&
+    typeof valueToTest === 'object' &&
+    'make' in valueToTest &&
+    typeof valueToTest['make'] === 'string' &&
+    'model' in valueToTest &&
+    typeof valueToTest['model'] === 'string' &&
+    'year' in valueToTest &&
+    typeof valueToTest['year'] === 'number'
+  )
+}
 
 // // using the guard
-// if (isCarLike(maybeCar)) {
-//     maybeCar
-//     // ^?
-// }
+if (isCarLike(maybeCar)) {
+  maybeCar
+  // ^?
+}
 
 //* value is foo
 
@@ -91,27 +92,27 @@ else if ('dateRange' in value) {
 
 //* asserts value is foo
 
-// function assertsIsCarLike(
-//     valueToTest: any
-// ): asserts valueToTest is CarLike {
-//     if (
-//         !(
-//             valueToTest &&
-//             typeof valueToTest === "object" &&
-//             "make" in valueToTest &&
-//             typeof valueToTest["make"] === "string" &&
-//             "model" in valueToTest &&
-//             typeof valueToTest["model"] === "string" &&
-//             "year" in valueToTest &&
-//             typeof valueToTest["year"] === "number"
-//         )
-//     )
-//         throw new Error(
-//             `Value does not appear to be a CarLike${valueToTest}`
-//         )
-// }
-// assertsIsCarLike(maybeCar)
-// maybeCar
+function assertsIsCarLike(
+  valueToTest: any,
+): asserts valueToTest is CarLike {
+  if (
+    !(
+      valueToTest &&
+      typeof valueToTest === 'object' &&
+      'make' in valueToTest &&
+      typeof valueToTest['make'] === 'string' &&
+      'model' in valueToTest &&
+      typeof valueToTest['model'] === 'string' &&
+      'year' in valueToTest &&
+      typeof valueToTest['year'] === 'number'
+    )
+  )
+    throw new Error(
+      `Value does not appear to be a CarLike${valueToTest}`,
+    )
+}
+assertsIsCarLike(maybeCar)
+maybeCar
 
 //* Use with private #field presence checks
 
