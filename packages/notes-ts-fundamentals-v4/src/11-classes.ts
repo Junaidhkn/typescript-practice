@@ -21,9 +21,9 @@ class Car {
   year: number
   // serialNumber = Car.generateSerialNumber() //Class field Initializer
 
-  private _serialNumber = Car.generateSerialNumber()
+  readonly #serialNumber = Car.generateSerialNumber()
   protected get serialNumber() {
-    return this._serialNumber
+    return this.#serialNumber
   }
   constructor(make: string, model: string, year: number) {
     this.make = make
@@ -35,6 +35,18 @@ class Car {
   }
   getLabel() {
     return `${this.make} ${this.model} ${this.year} - #${this.serialNumber}`
+  }
+  equals(other: unknown) {
+    if (
+      other &&
+      typeof other === 'object' &&
+      #serialNumber in other
+    ) {
+      other
+
+      return (other.#serialNumber = this.#serialNumber)
+    }
+    return false
   }
 }
 
