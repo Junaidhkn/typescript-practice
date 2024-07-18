@@ -116,63 +116,68 @@ maybeCar
 
 //* Use with private #field presence checks
 
-// class Car {
-//     static #nextSerialNumber: number = 100
-//     static #generateSerialNumber() { return this.#nextSerialNumber++ }
+class Car {
+  static #nextSerialNumber: number = 100
+  static #generateSerialNumber() {
+    return this.#nextSerialNumber++
+  }
 
-//     #serialNumber = Car.#generateSerialNumber()
+  #serialNumber = Car.#generateSerialNumber()
 
-//     static isCar(other: any): other is Car {
-//         if (other && // is it truthy
-//             typeof other === "object" && // and an object
-//             #serialNumber in other) { // and we can find a private field that we can access from here
-//             // then it *must* be a car
-//             other
-//             // ^?
-//             return true
-//         }
-//         return false
-//     }
-// }
+  static isCar(other: any): other is Car {
+    if (
+      other && // is it truthy
+      typeof other === 'object' && // and an object
+      #serialNumber in other
+    ) {
+      // and we can find a private field that we can access from here
+      // then it *must* be a car
+      other
+      // ^?
+      return true
+    }
+    return false
+  }
+}
 
-// let val: any
+let val: any
 
-// if (Car.isCar(val)) {
-//     val
-//     // ^?
-// }
+if (Car.isCar(val)) {
+  val
+  // ^?
+}
 
 //* Narrowing with switch(true)
 
-// class Fish {
-//     swim(): void { }
-// }
-// class Bird {
-//     fly(): void { }
-// }
+class Fish {
+  swim(): void {}
+}
+class Bird {
+  fly(): void {}
+}
 
-// switch (true) {
-//     case val instanceof Bird:
-//         val.fly()
-//         break
-//     case val instanceof Fish:
-//         val.swim()
-//         break
-// }
+switch (true) {
+  case val instanceof Bird:
+    val.fly()
+    break
+  case val instanceof Fish:
+    val.swim()
+    break
+}
 
 //* Writing high-quality type guards
 
 // //! EXAMPLE OF A BAD TYPE GUARD
-// function isNull(val: any): val is null {
-//     return !val //! Lies!
-// }
-// const empty = ""
-// const zero = 0
-// if (isNull(zero)) {
-//     console.log(zero) //? is it really impossible to get here?
-// }
-// if (isNull(empty)) {
-//     console.log(empty) //? is it really impossible to get here?
-// }
+function isNull(val: any): val is null {
+  return !val //! Lies!
+}
+const empty = ''
+const zero = 0
+if (isNull(zero)) {
+  console.log(zero) //? is it really impossible to get here?
+}
+if (isNull(empty)) {
+  console.log(empty) //? is it really impossible to get here?
+}
 
 export default {}
