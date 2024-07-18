@@ -16,20 +16,17 @@ class Car {
       })
   }
 
-  make: string
-  model: string
-  year: number
   // serialNumber = Car.generateSerialNumber() //Class field Initializer
 
   readonly #serialNumber = Car.generateSerialNumber()
   protected get serialNumber() {
     return this.#serialNumber
   }
-  constructor(make: string, model: string, year: number) {
-    this.make = make
-    this.model = model
-    this.year = year
-  }
+  constructor(
+    public make: string,
+    public model: string,
+    public year: number,
+  ) {}
   honk(duration: number): string {
     return `h${'o'.repeat(duration)}nk`
   }
