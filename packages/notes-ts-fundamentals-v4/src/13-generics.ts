@@ -72,14 +72,14 @@ const genericsResult = listTo(phoneList, (item) => item.customerId)
 //   return dict
 // }
 
-// function wrapInArray<T>(arg: T): [T] {
-//   return [arg]
-// }
-// wrapInArray(3)
-// //   ^?
-// wrapInArray(new Date())
-// //   ^?
-// wrapInArray(new RegExp("/s/"))
+function wrapInArray<T>(arg: T): [T] {
+  return [arg]
+}
+wrapInArray(3)
+//   ^?
+wrapInArray(new Date())
+//   ^?
+wrapInArray(new RegExp('/s/'))
 
 //? Let's try it!
 // listToDict(
@@ -96,8 +96,8 @@ const genericsResult = listTo(phoneList, (item) => item.customerId)
 
 //* Best practices
 
-// function returnAs<T>(arg: any): T {
-//     return arg //! an `any` that will _seem_ like a `T`
-// } // may as well just cast
+function returnAs<T>(arg: any): T {
+  return arg //! an `any` that will _seem_ like a `T`
+} // may as well just cast
 
 export default {}
