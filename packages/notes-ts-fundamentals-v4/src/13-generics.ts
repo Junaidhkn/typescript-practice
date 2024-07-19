@@ -40,6 +40,21 @@ function listToDict(
 }
 const result = listToDict(phoneList, (item) => item.customerId)
 
+// With Generics Type Checking, the above example is limited to dictonary
+
+function listTo<T>(
+  list: T[], // take the list as an argument
+  idGen: (arg: T) => string, // a callback to get Ids
+): { [k: string]: T } {
+  const dict: { [k: string]: T } = {}
+  list.forEach((element) => {
+    const dictKey = idGen(element)
+    dict[dictKey] = element // store element under key
+  })
+  return dict
+}
+const genericsResult = listTo(phoneList, (item) => item.customerId)
+
 //? An attempt to generalize the above function to work with any type of list
 
 // function listToDict(
