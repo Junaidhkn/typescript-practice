@@ -9,57 +9,57 @@ flexible.it.is.possible.to.access.any.deep.property
 console.log(window, Promise, setTimeout, 'foo')
 
 //* unknown
-/*
-// let flexible2: unknown = 4
-// flexible2 = 'Download some more ram'
-// flexible2 = window.document
-// flexible2 = setTimeout
 
-// let myUnknown: unknown = 14
+let flexible2: unknown = 4
+flexible2 = 'Download some more ram'
+flexible2 = window.document
+flexible2 = setTimeout
+
+let myUnknown: unknown = 14
 // myUnknown.it.is.possible.to.access.any.deep.property //✔️ Fails as it should
 
-// // This code runs for myUnknown = { all possible values }
-// if (typeof myUnknown === 'string') {
-//   // This code runs for myUnknown = { all strings }
-//   myUnknown
-//   //     ^?
-// } else if (typeof myUnknown === 'number') {
-//   // This code runs for myUnknown = { all numbers }
-//   myUnknown
-//   //     ^?
-// } else {
-//   myUnknown
-//   // ^?
-//   // this would run for "the leftovers"
-//   //       myUnknown = { anything except string or numbers }
-// }
+// This code runs for myUnknown = { all possible values }
+if (typeof myUnknown === 'string') {
+  // This code runs for myUnknown = { all strings }
+  myUnknown
+  //     ^?
+} else if (typeof myUnknown === 'number') {
+  // This code runs for myUnknown = { all numbers }
+  myUnknown
+  //     ^?
+} else {
+  myUnknown
+  // ^?
+  // this would run for "the leftovers"
+  //       myUnknown = { anything except string or numbers }
+}
 
 //* Practical use of top types
-/*
-// function doSomethingRisky() {
-//   if (Math.random() > 0.5) return 'ok'
-//   else if (Math.random() > 0.5) throw new Error('Bad luck!')
-//   else throw 'Really bad luck'
-// }
 
-// try {
-//   doSomethingRisky()
-// } catch (e: unknown) {
-//   if (e instanceof Error) {
-//     e
-//     //   ^?
-//   } else if (typeof e === 'string') {
-//     e
-//     //   ^?
-//   } else {
-//     // Last resort
-//     console.error(e)
-//     //                 ^?
-//   }
-// }
+function doSomethingRisky() {
+  if (Math.random() > 0.5) return 'ok'
+  else if (Math.random() > 0.5) throw new Error('Bad luck!')
+  else throw 'Really bad luck'
+}
+
+try {
+  doSomethingRisky()
+} catch (e: unknown) {
+  if (e instanceof Error) {
+    e
+    //   ^?
+  } else if (typeof e === 'string') {
+    e
+    //   ^?
+  } else {
+    // Last resort
+    console.error(e)
+    //                 ^?
+  }
+}
 
 //* Almost top type: object
-/*
+
 // let val: object = { status: 'ok' }
 // val = 'foo' //! string is not an object
 // val = null //! null is not an object
@@ -73,7 +73,7 @@ console.log(window, Promise, setTimeout, 'foo')
 // val = response
 
 //* Almost top type: {}
-/*
+
 // const stringOrNumber: string | number = 4
 // let nullableString: string | null = null
 // const myObj: {
@@ -88,7 +88,6 @@ console.log(window, Promise, setTimeout, 'foo')
 // val2 = nullableString
 // val2 = myObj.a
 
-// /*
 // //? Adding in null and undefined, and we're back to a top type
 // let withoutUndefined: {} | null = 37
 // let withUndefined: {} | null | undefined = 38
@@ -101,7 +100,7 @@ console.log(window, Promise, setTimeout, 'foo')
 // type StringOrNumber = NullableStringOrNumber & {} // ✔️ remove the null and undefined
 
 //* Bottom type: never
-/*
+
 // function obtainRandomVehicle(): any {
 //   return {} as any
 // }
@@ -130,7 +129,6 @@ console.log(window, Promise, setTimeout, 'foo')
 //   const neverValue: never = myVehicle
 // }
 
-/*
 //? Add Boat
 // class Boat {
 //   isFloating() {
@@ -138,7 +136,6 @@ console.log(window, Promise, setTimeout, 'foo')
 //   }
 // }
 
-/*
 //? Unreachable Error
 // class UnreachableError extends Error {
 //   constructor(_nvr: never, message: string) {
@@ -152,7 +149,7 @@ console.log(window, Promise, setTimeout, 'foo')
 // )
 
 //* Unit Types
-/*
+
 // //? null and undefined
 // let myNull: null = null
 // let myUndefined: undefined = undefined
@@ -168,8 +165,5 @@ console.log(window, Promise, setTimeout, 'foo')
 
 // myUndefined = myVoid
 // myNull = myVoid
-
-/**/
-
 
 export default {}
