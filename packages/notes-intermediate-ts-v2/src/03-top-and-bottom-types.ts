@@ -57,20 +57,20 @@ try {
     //                 ^?
   }
 }
-
+//  Other examples includes fetch the data from the API or transfering data object from the library from one peice of code to another unaltered
 //* Almost top type: object
 
-// let val: object = { status: 'ok' }
+let val: object = { status: 'ok' }
 // val = 'foo' //! string is not an object
 // val = null //! null is not an object
-// val = () => 'ok' //✔️ functions are objects
+val = () => 'ok' //✔️ functions are objects
 
 // // The type of this value cannot be modeled by an interface
-// let response: //     ^?
-// { success: string; data: unknown } | { error: string; code: number } =
-//   { success: 'ok', data: [] }
+let response: //     ^?
+{ success: string; data: unknown } | { error: string; code: number } =
+  { success: 'ok', data: [] }
 
-// val = response
+val = response
 
 //* Almost top type: {}
 
