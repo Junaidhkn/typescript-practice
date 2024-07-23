@@ -74,30 +74,30 @@ val = response
 
 //* Almost top type: {}
 
-// const stringOrNumber: string | number = 4
-// let nullableString: string | null = null
-// const myObj: {
-//   a?: number
-//   b: string
-// } = { b: 'foo' }
+const stringOrNumber: string | number = 4
+let nullableString: string | null = null
+const myObj: {
+  a?: number
+  b: string
+} = { a: 34, b: 'foo' }
 
-// let val2: {} = 4
-// val2 = 'abc'
-// val2 = new Date()
-// val2 = stringOrNumber
+let val2: {} = 4
+val2 = 'abc'
+val2 = new Date()
+val2 = stringOrNumber
 // val2 = nullableString
 // val2 = myObj.a
 
 // //? Adding in null and undefined, and we're back to a top type
-// let withoutUndefined: {} | null = 37
-// let withUndefined: {} | null | undefined = 38
-// let anUnknown: unknown = '42'
+let withoutUndefined: {} | null = 37
+let withUndefined: {} | null | undefined = 38
+let anUnknown: unknown = '42'
 
 // withoutUndefined = anUnknown //! unknown is not assignable to {}
-// withUndefined = anUnknown //✔️ OK
+withUndefined = anUnknown //✔️ OK
 
-// type NullableStringOrNumber = string | number | null | undefined
-// type StringOrNumber = NullableStringOrNumber & {} // ✔️ remove the null and undefined
+type NullableStringOrNumber = string | number | null | undefined
+type StringOrNumber = NullableStringOrNumber & {} // ✔️ remove the null and undefined
 
 //* Bottom type: never
 
