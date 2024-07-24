@@ -101,33 +101,33 @@ type StringOrNumber = NullableStringOrNumber & {} // ✔️ remove the null and 
 
 //* Bottom type: never
 
-// function obtainRandomVehicle(): any {
-//   return {} as any
-// }
+function obtainRandomVehicle(): any {
+  return {} as any
+}
 
-// class Car {
-//   drive() {
-//     console.log('vroom')
-//   }
-// }
-// class Truck {
-//   tow() {
-//     console.log('dragging something')
-//   }
-// }
-// type Vehicle = Truck | Car
+class Car {
+  drive() {
+    console.log('vroom')
+  }
+}
+class Truck {
+  tow() {
+    console.log('dragging something')
+  }
+}
+type Vehicle = Truck | Car
 
-// let myVehicle: Vehicle = obtainRandomVehicle()
+let myVehicle: Vehicle = obtainRandomVehicle()
 
-// // The exhaustive conditional
-// if (myVehicle instanceof Truck) {
-//   myVehicle.tow() // Truck
-// } else if (myVehicle instanceof Car) {
-//   myVehicle.drive() // Car
-// } else {
-//   // NEITHER!
-//   const neverValue: never = myVehicle
-// }
+// The exhaustive conditional
+if (myVehicle instanceof Truck) {
+  myVehicle.tow() // Truck
+} else if (myVehicle instanceof Car) {
+  myVehicle.drive() // Car
+} else {
+  // NEITHER!
+  const neverValue: never = myVehicle
+}
 
 //? Add Boat
 // class Boat {
