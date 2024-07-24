@@ -7,59 +7,60 @@ const userInfo = {
 }
 
 //* Undefined
-/*
-// interface FormInProgress {
-//   createdAt: Date
-//   data: FormData
-//   completedAt?: Date
-// }
-// const formInProgress: FormInProgress = {
-//   createdAt: new Date(),
-//   data: new FormData(),
-// }
-// function submitForm() {
-//   const myDate: Date = formInProgress.completedAt
-//   formInProgress.completedAt = new Date()
-// }
+
+interface FormInProgress {
+  createdAt: Date
+  data: FormData
+  completedAt?: Date
+}
+const formInProgress: FormInProgress = {
+  createdAt: new Date(),
+  completedAt: new Date(),
+  data: new FormData(),
+}
+function submitForm() {
+  // const myDate: Date = formInProgress.completedAt   // Can be undefined
+  formInProgress.completedAt = new Date()
+}
 
 //* void
-/*
-// console.log(`console.log returns nothing.`)
+
+console.log(`console.log returns nothing.`)
 
 //* Non-null assertion operator
-/*
-// type GroceryCart = {
-//   fruits?: { name: string; qty: number }[]
-//   vegetables?: { name: string; qty: number }[]
-// }
 
-// const cart: GroceryCart = {}
+type GroceryCart = {
+  fruits?: { name: string; qty: number }[]
+  vegetables?: { name: string; qty: number }[]
+}
+
+const cart: GroceryCart = {}
 
 // cart.fruits.push({ name: 'kumkuat', qty: 1 })
 // cart.fruits!.push({ name: 'kumkuat', qty: 1 })
 
 //* Definite assignment assertion
-/*
-// class ThingWithAsyncSetup {
-//   setupPromise: Promise<any>
-//   isSetup: boolean
 
-//   constructor() {
-//     this.setupPromise = new Promise((resolve) => {
-//       this.isSetup = false
-//       return this.doSetup(resolve)
-//     }).then(() => {
-//       this.isSetup = true
-//     })
-//   }
+class ThingWithAsyncSetup {
+  setupPromise: Promise<any>
+  isSetup!: boolean
 
-//   private async doSetup(resolve: (value: unknown) => void) {
-//     // some async stuff
-//   }
-// }
+  constructor() {
+    this.setupPromise = new Promise((resolve) => {
+      this.isSetup = false
+      return this.doSetup(resolve)
+    }).then(() => {
+      this.isSetup = true
+    })
+  }
+
+  private async doSetup(resolve: (value: unknown) => void) {
+    // some async stuff
+  }
+}
 
 //* Optional Chaining
-/*
+
 // type Payment = {
 //   id: string
 //   amount: number
@@ -94,13 +95,12 @@ const userInfo = {
 //   return lastPayment.amount
 // }
 
-/*
 // function getLastPayment2(data: ResponseData): number | undefined {
 //   return data?.customer?.lastInvoice?.lastPayment?.amount
 // }
 
 //* Nullish Coalescing
-/*
+
 // function setVolume(v: number): void {}
 
 // type PlayerConfig = {
@@ -113,5 +113,4 @@ const userInfo = {
 //   setVolume(vol)
 // }
 
-/**/
 export default {}
