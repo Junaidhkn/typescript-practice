@@ -39,6 +39,14 @@ const cart: GroceryCart = {}
 // cart.fruits.push({ name: 'kumkuat', qty: 1 })
 // cart.fruits!.push({ name: 'kumkuat', qty: 1 })
 
+//  In Production code, the following is the way to go
+const { fruits } = cart
+if (fruits) {
+  fruits.push({ name: 'kumkuat', qty: 1 })
+} else {
+  // Something else
+}
+
 //* Definite assignment assertion
 
 class ThingWithAsyncSetup {
@@ -61,56 +69,57 @@ class ThingWithAsyncSetup {
 
 //* Optional Chaining
 
-// type Payment = {
-//   id: string
-//   amount: number
-//   createdAt: Date
-// }
-// type Invoice = {
-//   id: string
-//   due: number
-//   payments: Payment[]
-//   lastPayment?: Payment
-//   createdAt: Date
-// }
-// type Customer = {
-//   id: string
-//   lastInvoice?: Invoice
-//   invoices: Invoice[]
-// }
-// type ResponseData = {
-//   customers?: Customer[]
-//   customer?: Customer
-// }
-// function getLastPayment(data: ResponseData): number | undefined {
-//   const { customer } = data
-//   if (!customer) return
+type Payment = {
+  id: string
+  amount: number
+  createdAt: Date
+}
+type Invoice = {
+  id: string
+  due: number
+  payments: Payment[]
+  lastPayment?: Payment
+  createdAt: Date
+}
+type Customer = {
+  id: string
+  lastInvoice?: Invoice
+  invoices: Invoice[]
+}
+type ResponseData = {
+  customers?: Customer[]
+  customer?: Customer
+}
+function getLastPayment(data: ResponseData): number | undefined {
+  const { customer } = data
+  if (!customer) return
 
-//   const { lastInvoice } = customer
-//   if (!lastInvoice) return
+  const { lastInvoice } = customer
+  if (!lastInvoice) return
 
-//   const { lastPayment } = lastInvoice
-//   if (!lastPayment) return
+  const { lastPayment } = lastInvoice
+  if (!lastPayment) return
 
-//   return lastPayment.amount
-// }
-
-// function getLastPayment2(data: ResponseData): number | undefined {
-//   return data?.customer?.lastInvoice?.lastPayment?.amount
-// }
+  return lastPayment.amount
+}
+//* Optional chaining method:
+// the problem with this approach it doesn't throw any error if the property is missing, it just returns undefined, but the syntax is much simpler from the above problem and can be used in production
+function getLastPayment2(data: ResponseData): number | undefined {
+  return data?.customer?.lastInvoice?.lastPayment?.amount
+}
 
 //* Nullish Coalescing
 
-// function setVolume(v: number): void {}
+function setVolume(v: number): void {}
 
-// type PlayerConfig = {
-//   volume?: 0 | 25 | 50 | 75 | 100
-// }
+type PlayerConfig = {
+  volume?: 0 | 25 | 50 | 75 | 100
+}
 
-// function initializePlayer(config: PlayerConfig): void {
-//   const vol =
-//     typeof config.volume === 'undefined' ? 50 : config.volume
-//   setVolume(vol)
-// }
+function initializePlayer(config: PlayerConfig): void {
+  const vol = config.volume ?? 50
+  // typeof config.volume === 'undefined' ? 50 : config.volume
+  setVolume(vol)
+}
 
 export default {}
