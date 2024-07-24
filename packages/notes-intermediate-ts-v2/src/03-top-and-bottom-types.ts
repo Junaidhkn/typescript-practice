@@ -130,18 +130,18 @@ if (myVehicle instanceof Truck) {
 }
 
 //? Add Boat
-// class Boat {
-//   isFloating() {
-//     return true
-//   }
-// }
+class Boat {
+  isFloating() {
+    return true
+  }
+}
 
 //? Unreachable Error
-// class UnreachableError extends Error {
-//   constructor(_nvr: never, message: string) {
-//     super(message)
-//   }
-// }
+class UnreachableError extends Error {
+  constructor(_nvr: never, message: string) {
+    super(message)
+  }
+}
 
 // throw new UnreachableError(
 //   myVehicle,
@@ -151,16 +151,16 @@ if (myVehicle instanceof Truck) {
 //* Unit Types
 
 // //? null and undefined
-// let myNull: null = null
-// let myUndefined: undefined = undefined
+let myNull: null = null
+let myUndefined: undefined = undefined
 
 // myNull = undefined
 // myUndefined = null
 
 // //? void
-// let myVoid: void = (function() {})()// invoking a void-returning IIFE
+let myVoid: void = (function () {})() // invoking a void-returning IIFE
 
-// myVoid = undefined
+myVoid = undefined
 // myVoid = null
 
 // myUndefined = myVoid
