@@ -35,7 +35,7 @@ let z: Strawberry = { color: 'red' }
 //* CommonJS Interop
 
 // //? "import as a namespace"
-import * as bananaNamespace from './banana'
+import * as bananaNamespace from './banana.cjs'
 
 const banana = new bananaNamespace.Banana()
 
@@ -49,16 +49,12 @@ melon.cutIntoSlices()
 
 //* Native ES Module support
 
-// import * as bananaNamespace from './banana.cjs'
+import * as bananaNamespaces from './banana.cjs'
 // package.json --> 'type: module', 'type: commonjs'
 
 //* Importing non-ts things
 
-// import img from "./ts-logo.png"
-//? Add to global.d.ts
-// declare module '*.png' {
-//   const imgUrl: string
-//   export default imgUrl
-// }
+import img from './ts-logo.png'
+// ? Add to global.d.ts
 
 // export default {}
