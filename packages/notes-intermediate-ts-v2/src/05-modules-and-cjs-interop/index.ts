@@ -35,17 +35,17 @@ let z: Strawberry = { color: 'red' }
 //* CommonJS Interop
 
 // //? "import as a namespace"
-// import * as bananaNamespace from './banana'
+import * as bananaNamespace from './banana'
 
-// const banana = new bananaNamespace.Banana()
+const banana = new bananaNamespace.Banana()
 
 //? import as a single thing (rare)
 // import * as melonNamespace from './melon'
 //? special ts import
-// import Melon = require('./melon')
+import Melon = require('./melon')
 
-// const melon = new Melon()
-// melon.cutIntoSlices()
+const melon = new Melon()
+melon.cutIntoSlices()
 
 //* Native ES Module support
 
