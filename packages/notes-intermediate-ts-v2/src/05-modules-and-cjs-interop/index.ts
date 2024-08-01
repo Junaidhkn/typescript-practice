@@ -12,25 +12,25 @@ export { lemon, lime } from './citrus' // re-export
 export * as berries from './berries' // re-export entire module as a single namespace
 
 // //? namespace import
-// import * as allBerries from './berries' // namespace import
+import * as allBerries from './berries' // namespace import
 
-// allBerries.Strawberry // using the namespace
-// allBerries.Blueberry
-// allBerries.Raspberry
+allBerries.Strawberry // using the namespace
+allBerries.Blueberry
+allBerries.Raspberry
 
-// export * from './berries' // namespace re-export
+export * from './berries' // namespace re-export
 
 //* Importing types
 
-// let x: Raspberry = { color: 'red' }
-// const y = new Raspberry('red')
+let x: Raspberry = { color: 'red' }
+const y = new Raspberry('red')
 
 //* Type-only imports
 
-// import type { Strawberry } from './berries/strawberry'
+import type { Strawberry } from './berries/strawberry'
 
-// let z: Strawberry = { color: 'red' }
-// new Strawberry()
+let z: Strawberry = { color: 'red' }
+// new Strawberry() // Now its only the type that is being imported
 
 //* CommonJS Interop
 
