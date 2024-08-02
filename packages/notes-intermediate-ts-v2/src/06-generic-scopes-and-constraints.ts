@@ -34,34 +34,29 @@ function listToDict<T>(
 
   return dict // result
 }
-/*
-// interface HasId {
-//   id: string
-// }
-// interface Dict<T> {
-//   [k: string]: T
-// }
 
-// function listToDict(list: HasId[]): Dict<HasId> {
-//   const dict: Dict<HasId> = {}
+// Suppose we already have an ID instead of CustomerID, and we do not pass in the callback,but with this approach we have lost the generic(flexible ) sense of operation
 
-//   list.forEach((item) => {
-//     dict[item.id] = item
-//   })
+interface HasId {
+  id: string
+}
+interface Dict<T> {
+  [k: string]: T
+}
 
-//   return dict
-// }
+// function listToDict2(list: HasId[]): Dict<HasId> {
+function listToDict2<T extends HasId>(list: T[]): Dict<T> {
+  const dict: Dict<T> = {}
 
-/*
-//? Let's make it
-// function listToDict<T>(list: T[]): Dict<T> {
+  list.forEach((item) => {
+    dict[item.id] = item
+  })
 
-//* Describing the constraint
-/*
-// function listToDict<T extends HasId>(list: T[]): Dict<T> {
+  return dict
+}
 
 //* Scopes and Type Parameters
-/*
+
 // function eatApple(bowl: any, eater: (arg: any) => void) {}
 
 // function receiveFruitBasket(bowl: any) {
@@ -123,5 +118,4 @@ function listToDict<T>(
 //   new Payment()
 // ])
 
-/**/
 export default {}
