@@ -12,7 +12,6 @@ const fruitCatalog: Dict<Fruit> = {}
 fruitCatalog.apple
 
 //* Our first mapped type
-/*
 
 // // mapped type
 // type MyRecord = { [FruitKey in 'apple' | 'cherry']: Fruit }
@@ -24,7 +23,7 @@ fruitCatalog.apple
 // }
 
 //* Record
-/*
+
 // type AnyPossibleKey = keyof any
 // // type MyRecord<K extends keyof any, V> = { [Key in K]: V }
 
@@ -34,7 +33,7 @@ fruitCatalog.apple
 // // }
 
 //* Use with indexed access types
-/*
+
 // type PartOfWindow = {
 //   [Key in 'document' | 'navigator' | 'setTimeout']: Window[Key]
 // }
@@ -48,7 +47,7 @@ fruitCatalog.apple
 // // >
 
 //* Pick
-/*
+
 // type PickProperties<ValueType, Keys extends keyof ValueType> = {
 //   [Key in Keys]: ValueType[Key]
 // }
@@ -65,7 +64,6 @@ fruitCatalog.apple
 
 //* Mapping modifiers
 
-/*
 // // Make all properties in T optional
 // type _Partial<T> = {
 //   [P in keyof T]?: T[P]
@@ -81,14 +79,13 @@ fruitCatalog.apple
 //   readonly [P in keyof T]: T[P]
 // }
 
-/*
 // //! Do not use this -- it's a problematic type!
 // type NotReadonly<T> = {
 //   -readonly [P in keyof T]: T[P]
 // }
 
 //* Template literal types
-/*
+
 // type ArtFeatures = 'cabin' | 'tree' | 'sunset'
 // type Colors =
 //   | 'darkSienna'
@@ -98,11 +95,9 @@ fruitCatalog.apple
 
 // type ArtMethodNames = `paint_${Colors}_${ArtFeatures}`
 
-/*
 // type ArtMethodNames =
 //   `paint${Capitalize<Colors>}${Capitalize<ArtFeatures>}`
 
-/*
 // interface DataState {
 //   digits: number[]
 //   names: string[]
@@ -121,7 +116,6 @@ fruitCatalog.apple
 //   dataSDK.setFlags({ darkMode: true, mobile: false })
 // }
 
-/*
 // //? Extracting string literal types
 
 // const courseWebsite = 'Frontend Masters'
@@ -130,14 +124,14 @@ fruitCatalog.apple
 // let fe: ExtractMasterName<typeof courseWebsite> = 'Backend'
 
 //* Filtering properties out
-/*
+
 // type DocKeys = Extract<keyof Document, `query${string}`>
 // type KeyFilteredDoc = {
 //   [K in DocKeys]: Document[K]
 // }
 
 //? The flawed approach
-/*
+
 // //! EXAMPLE OF WHAT NOT TO DO. DO NOT FOLLOW THIS EXAMPLE
 // type ValueFilteredDoc = {
 //   [K in keyof Document]: Document[K] extends (
@@ -151,7 +145,6 @@ fruitCatalog.apple
 //   doc.querySelector('input') //! a lot of nevers!
 // }
 
-/*
 // //? A better approach - filter keys first
 // type FilteredKeys<T, U> = {
 //   [P in keyof T]: T[P] extends U ? P : never
@@ -165,5 +158,4 @@ fruitCatalog.apple
 
 // // type ValueFilteredDoc = Pick<Document, RelevantDocumentKeys>
 
-/**/
 export default {}

@@ -18,7 +18,7 @@ class Cookie extends Snack {
 }
 
 //* Covariance
-/*
+
 // interface Producer<T> {
 //   produce: () => T
 // }
@@ -30,24 +30,21 @@ class Cookie extends Snack {
 //   produce: () => Math.random() > 0.5 ? new Cookie("milk") : new Pretzel(true)
 // };
 
-/*
 // //? Type equivalence check
 // snackProducer = cookieProducer //✔️ OK
 // cookieProducer = snackProducer //! Nope
 
-/*
 // | Cookie                | direction     | Snack                 |
 // |-----------------------|---------------|-----------------------|
 // | `Cookie`              | --- is a ---> | `Snack`               |
 // | `Producer<Cookie>`    | --- is a ---> | `Producer<Snack>`     |
 
-/*
 // interface Producer<out T> {
 //   produce: () => T
 // }
 
 //* Contravariance
-/*
+
 // interface Packager<T> {
 //   package: (item: T) => void
 // }
@@ -68,29 +65,26 @@ class Cookie extends Snack {
 //   },
 // }
 
-/*
 // //? Type equivalence check
 // cookiePackager = snackPackager //✔️ OK
 // snackPackager = cookiePackager //! Nope
 
-/*
 // | Cookie                | direction     | Snack                 |
 // |-----------------------|---------------|-----------------------|
 // | `Cookie`              | --- is a ---> | `Snack`               |
 // | `Packager<Cookie>`    | <--- is a --- | `Packager<Snack>`     |
 
-/*
 // interface Packager<in T> {
 //   package: (item: T) => void
 // }
 
 //* Invariance
-/*
+
 // interface ProducerPackager<T> {
 //   produce: () => T
 //   package: (item: T) => void
 // }
-/*
+
 // let cookieProducerPackager: ProducerPackager<Cookie> = {
 //   produce() {
 //     return new Cookie('dark')
@@ -115,12 +109,10 @@ class Cookie extends Snack {
 //   },
 // }
 
-/*
 // //? Type equivalence check
 // cookieProducerPackager = snackProducerPackager
 // snackProducerPackager = cookieProducerPackager
 
-/*
 // | Cookie                    | direction     | Snack                 |
 // |---------------------------|---------------|-----------------------|
 // | `Cookie`                  | --- is a ---> | `Snack`               |
@@ -128,7 +120,6 @@ class Cookie extends Snack {
 
 //* Bivariance
 
-/*
 // function cookieQualityCheck(cookie: Cookie): boolean {
 //   return Math.random() > 0.1
 // }
@@ -138,7 +129,6 @@ class Cookie extends Snack {
 //   else return Math.random() > 0.16 // pretzel case
 // }
 
-/*
 // // A function type for preparing a bunch of food items
 // // for shipment. The function must be passed a callback
 // // that will be used to check the quality of each item.
@@ -147,7 +137,6 @@ class Cookie extends Snack {
 //   qualityCheck: (arg: T) => boolean,
 // ) => T[]
 
-/*
 // // Prepare a bunch of snacks for shipment
 // let prepareSnacks: PrepareFoodPackage<Snack> = (
 //   uncheckedItems,
@@ -160,7 +149,6 @@ class Cookie extends Snack {
 //   callback,
 // ) => uncheckedItems.filter(callback)
 
-/*
 // const cookies = [
 //   new Cookie('dark'),
 //   new Cookie('milk'),
@@ -175,15 +163,13 @@ class Cookie extends Snack {
 // prepareSnacks(snacks, cookieQualityCheck)
 // prepareCookies(cookies, snackQualityCheck)
 
-/*
 //? What if we turn `strictFunctionTypes` on and off?
 
 //* What do variance helpers do for you?
-/*
+
 // interface Example<in T> {
 //   package: (item: T) => void
 //   // produce: () => T;
 // }
 
-/**/
 export default {}
