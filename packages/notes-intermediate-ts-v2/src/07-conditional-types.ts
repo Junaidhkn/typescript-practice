@@ -51,13 +51,13 @@ type TupleColors = Extract<FavoriteColors, [number, number, number]>
 
 //* Exclude<T, U>
 
-// type NonStringColors = Exclude<FavoriteColors, string>
+type NonStringColors = Exclude<FavoriteColors, string>
 
 //* How do these work?
 
-// type _Exclude<T, U> = T extends U ? never : T
-// type _Extract<T, U> = T extends U ? T : never
+type _Exclude<T, U> = T extends U ? never : T
+type _Extract<T, U> = T extends U ? T : never
 
-// type OneNever = 1 | never
+type OneNever = 1 | never
 
 export default {}
