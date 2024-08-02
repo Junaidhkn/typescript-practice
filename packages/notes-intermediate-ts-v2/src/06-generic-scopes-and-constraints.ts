@@ -80,20 +80,28 @@ const t1 = finishTuple(null)
 const t2 = finishTuple([4, 8, 15, 16, 23, 42])
 
 //* Best practices
-// interface HasId {
-//   id: string
-// }
 // interface Dict<T> {
 //   [k: string]: T
 // }
 
+interface HasId {
+  id: string
+}
 function example1<T extends HasId[]>(list: T) {
   return list.pop()
-  //      ^?
+  /*
+> Type Parameter: The type parameter T is constrained to be an array of objects that implement the HasId interface (T extends HasId[]).
+>Input: The function takes a single parameter list of type T. Since T is an array type (HasId[]), list is an array of objects that each have an id property.
+>Output: The function returns the result of list.pop(), which removes and returns the last element of the array. The type of the returned value will be HasId | undefined, because list.pop() can return undefined if the array is empty.
+  */
 }
 function example2<T extends HasId>(list: T[]) {
   return list.pop()
-  //      ^?
+  /*
+> Type Parameter: The type parameter T is constrained to be an object that implements the HasId interface (T extends HasId).
+>Input: The function takes a single parameter list of type T[]. This means list is an array of objects that each have an id property.
+>Output: The function returns the result of list.pop(), which removes and returns the last element of the array. The type of the returned value will be T | undefined, where T is a specific type that extends HasId.
+  */
 }
 
 class Payment implements HasId {
