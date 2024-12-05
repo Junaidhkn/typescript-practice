@@ -4532,10 +4532,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tsd/typescript@npm:~5.2.2":
-  version: 5.2.2
-  resolution: "@tsd/typescript@npm:5.2.2"
-  checksum: b72d6311356a1fabcd78ffeb878a6ba3d51804d02fefdc6cf36ae8957d97b13823b9e396f550e37c2d1b405b6ad0fa190f4ec791bc6d730b02b22e39b33a4c76
+"@tsd/typescript@npm:~5.4.3":
+  version: 5.4.4
+  resolution: "@tsd/typescript@npm:5.4.4"
+  checksum: f8579c20cf6691a1c79c40f01732e0ad23beb8149098539d9f96182f59ec5ab64342cf66832fb70b90d3cc250a084855aff4b07e4cd05e8db2e2a528edd3202f
   languageName: node
   linkType: hard
 
@@ -7577,7 +7577,7 @@ __metadata:
     react-dom: ^18.2.0
     react-router-dom: ^5.3.4
     tailwindcss: ^3.3.3
-    tsd: ^0.29.0
+    tsd: ^0.31.0
     typescript: 5.3.0-beta
   languageName: unknown
   linkType: soft
@@ -23293,11 +23293,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsd@npm:^0.29.0":
-  version: 0.29.0
-  resolution: "tsd@npm:0.29.0"
+"tsd@npm:^0.31.0":
+  version: 0.31.0
+  resolution: "tsd@npm:0.31.0"
   dependencies:
-    "@tsd/typescript": ~5.2.2
+    "@tsd/typescript": ~5.4.3
     eslint-formatter-pretty: ^4.1.0
     globby: ^11.0.1
     jest-diff: ^29.0.3
@@ -23306,7 +23306,7 @@ __metadata:
     read-pkg-up: ^7.0.0
   bin:
     tsd: dist/cli.js
-  checksum: 66b5f5f04c46b4c5cea28faba54d7372cdf3126876d968958eb3fb8dab0247ef50a466f10d59c6aea60751c35a518a594a06eecdb5e274cb8d739f804fc62da1
+  checksum: 30bdf5f02593b32d2d73e9b2d853d6ac3ed7356171f188d442774687a7cd7e4a1218f5f4ce06ae74e32ed68210a4f39a456142394977efabf296f23d04e580cd
   languageName: node
   linkType: hard
 
